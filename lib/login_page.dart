@@ -43,16 +43,29 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
             ),
             Container(padding: const EdgeInsets.all(10)),
+            Container(
+              margin: const EdgeInsets.only(
+                top: 10,
+                right: 311,
+              ),
+              child: const Text(
+                'Name',
+                style: TextStyle(
+                    color: Colors.deepPurple, fontWeight: FontWeight.bold),
+              ),
+            ),
             TextFormField(
               decoration: const InputDecoration(
                 hintText: 'Enter your name',
-                labelText: 'Name',
-                prefixIcon: Icon(Icons.person),
+                prefixIcon: Icon(
+                  Icons.person,
+                  color: Colors.deepPurple,
+                ),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your name';
-                } else if (value == name) {
+                } else if (value.length < 6) {
                   return 'Name must be at least 6 characters';
                 }
                 return null;
@@ -61,12 +74,26 @@ class _LoginPageState extends State<LoginPage> {
                 name = value;
               },
             ),
+            Container(
+              margin: const EdgeInsets.only(
+                top: 10,
+                right: 285,
+              ),
+              child: const Text(
+                'Password',
+                style: TextStyle(
+                    color: Colors.deepPurple, fontWeight: FontWeight.bold),
+              ),
+            ),
             TextFormField(
               obscureText: true,
               decoration: const InputDecoration(
-                labelText: 'Password',
                 hintText: 'Enter your password',
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.deepPurple,
+                ),
+                suffixIcon: Icon(Icons.remove_red_eye),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
