@@ -1,3 +1,4 @@
+import 'package:exercise_paml/home_page.dart';
 import 'package:exercise_paml/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -87,10 +88,10 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RegisterPage(
-                          //name: name,
-                          //password: password,
-                          ),
+                      builder: (context) => HomePage(
+                        name: name,
+                        password: password,
+                      ),
                     ),
                   );
                 }
