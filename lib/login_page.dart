@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
           child: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
           child: Column(children: [
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               margin: const EdgeInsets.only(
                 top: 10,
-                right: 311,
+                right: 330,
               ),
               child: const Text(
                 'Name',
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               margin: const EdgeInsets.only(
                 top: 10,
-                right: 285,
+                right: 301,
               ),
               child: const Text(
                 'Password',
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                minimumSize: Size(300, 50),
+                minimumSize: const Size(300, 50),
               ),
               child: const Text(
                 'Sign In',
