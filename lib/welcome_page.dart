@@ -18,31 +18,31 @@ class WelcomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 50),
           ),
-          Container(padding: EdgeInsets.all(20)),
+          Container(padding: const EdgeInsets.all(20)),
           const Text(
             'Welcome to Pokédex \n You can find your favorite pokemon here',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.grey),
           ),
-          Container(padding: EdgeInsets.all(65)),
+          Container(padding: const EdgeInsets.all(65)),
           Image.network(
             'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png',
             width: 200,
             height: 200,
           ),
-          Container(padding: EdgeInsets.all(65)),
+          Container(padding: const EdgeInsets.all(65)),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginPage(),
+                  builder: (context) => const LoginPage(),
                 ),
               );
             },
             style: ElevatedButton.styleFrom(
-              shape: CircleBorder(),
-              padding: EdgeInsets.all(15),
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(15),
             ),
             child: const Icon(Icons.arrow_forward),
           ),
