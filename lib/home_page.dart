@@ -13,29 +13,32 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                margin: const EdgeInsets.only(left: 26, top: 60, right: 30),
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Hallo, ',
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: name,
-                        style: const TextStyle(
-                            color: Colors.deepPurple,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                    ],
+              Expanded(
+                flex: 3,
+                child: Container(
+                  margin: const EdgeInsets.only(left: 28, top: 70),
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Hallo, ',
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: name,
+                          style: const TextStyle(
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 150, top: 70, right: 30),
+                margin: const EdgeInsets.only(top: 70, right: 25),
                 child: const CircleAvatar(
                   radius: 25,
                   backgroundImage: NetworkImage(
@@ -45,10 +48,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           Container(
-            margin: const EdgeInsets.only(
-              right: 233,
-              top: 5,
-            ),
+            margin: const EdgeInsets.only(right: 240, left: 10),
             child: const Text(
               'Pokédex.',
               style: TextStyle(
