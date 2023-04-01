@@ -15,8 +15,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   String? name;
   String? email;
-  String? password;
-  String? cpassword;
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +42,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  padding: EdgeInsets.all(13),
-                  minimumSize: Size(5, 5),
+                  padding: const EdgeInsets.all(13),
+                  minimumSize: const Size(5, 5),
                 ),
                 child: const Icon(Icons.arrow_back),
               ),
@@ -68,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Container(
               margin: const EdgeInsets.only(
                 top: 10,
-                right: 320,
+                right: 330,
               ),
               child: const Text(
                 'Name',
@@ -79,7 +78,10 @@ class _RegisterPageState extends State<RegisterPage> {
             TextFormField(
               decoration: const InputDecoration(
                 hintText: 'Enter your name',
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.deepPurple,
+                ),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -93,11 +95,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 name = value;
               },
             ),
-            // ignore: prefer_const_constructors
+
             Container(
               margin: const EdgeInsets.only(
                 top: 10,
-                right: 320,
+                right: 330,
               ),
               child: const Text(
                 'Email',
@@ -108,7 +110,10 @@ class _RegisterPageState extends State<RegisterPage> {
             TextFormField(
               decoration: const InputDecoration(
                 hintText: 'Enter your email',
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.deepPurple,
+                ),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -125,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Container(
               margin: const EdgeInsets.only(
                 top: 10,
-                right: 300,
+                right: 301,
               ),
               child: const Text(
                 'Password',
@@ -134,10 +139,14 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             TextFormField(
+              controller: _passwordController,
               obscureText: true,
               decoration: const InputDecoration(
                 hintText: 'Enter your password',
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.deepPurple,
+                ),
                 suffixIcon: Icon(Icons.remove_red_eye),
               ),
               validator: (value) {
@@ -147,9 +156,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   return 'Password must be at least 6 characters';
                 }
                 return null;
-              },
-              onSaved: (value) {
-                password = value;
               },
             ),
             Container(
@@ -166,22 +172,21 @@ class _RegisterPageState extends State<RegisterPage> {
             TextFormField(
               obscureText: true,
               decoration: const InputDecoration(
-                labelText: 'Re-Password',
                 hintText: 'Re-Enter your password',
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.deepPurple,
+                ),
                 suffixIcon: Icon(Icons.remove_red_eye),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your password';
                 }
-                if (value != password) {
+                if (value != _passwordController.text) {
                   return 'Password must be the same';
                 }
                 return null;
-              },
-              onSaved: (value) {
-                cpassword = value;
               },
             ),
             Container(padding: const EdgeInsets.all(20)),
@@ -190,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                minimumSize: Size(300, 50),
+                minimumSize: const Size(300, 50),
               ),
               child: const Text(
                 'Register',
